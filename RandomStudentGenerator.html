@@ -32,10 +32,6 @@ const p1 = ['stu1 p1', 'stu2 p1', 'stu3 p1', 'stu4 p1', 'stu5 p1', 'stu6 p1',];
 const p3 = ['stu1 p3', 'stu2 p3', 'stu3 p3', 'stu4 p3', 'stu5 p3', 'stu6 p3',];
 const p4 = ['stu1 p4', 'stu2 p4', 'stu3 p4', 'stu4 p4', 'stu5 p4', 'stu6 p4',];
 
-/*
-For the love of Mike I just realized what I want is stupid simple. Ugh.
-*/
-
 function getRandomStudent(array){
  let len = array.length;
  let student = array[getRandInt(0,len-1)];
@@ -54,6 +50,10 @@ function getRandInt(min = 1, max = 100){
 
 let classChosen = document.querySelector('#class-choice');
 
+/*
+TODO: Make simpler when you got brainspace to do so.
+I know there is a simpler way to do this... in a hurry I've forgotten.
+*/
 classChosen.addEventListener("click", function(e){
 	//e.stopPropagation();
   let classChoice = e.target.id;
