@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Random Student Order</title>
+	<style type="text/css">
+			.button{
+				background-color: cadetblue;
+				width: fit-content;
+				padding: .5em;
+				display: inline-grid;
+				margin: 0 .5em;
+				border-radius: .3em;
+			}
+
+	</style>
+</head>
+<body>
+<h1>Random Student Generator</h1>
+<div id="class-choice">
+	<div class="button" id="p1">Period 1</div>
+	<div class="button" id="p3">Period 3</div>
+	<div class="button" id="p4">Period 4</div>
+</div>
+<p id="chosen-one">Randomized Student</p>
+
+<script>
+
+//list of students for each period in each array by first name and last initial if there are duplicates of first name;
+
+const p1 = ['stu1 p1', 'stu2 p1', 'stu3 p1', 'stu4 p1', 'stu5 p1', 'stu6 p1',];
+const p3 = ['stu1 p3', 'stu2 p3', 'stu3 p3', 'stu4 p3', 'stu5 p3', 'stu6 p3',];
+const p4 = ['stu1 p4', 'stu2 p4', 'stu3 p4', 'stu4 p4', 'stu5 p4', 'stu6 p4',];
+
+/*
+For the love of Mike I just realized what I want is stupid simple. Ugh.
+*/
+
+function getRandomStudent(array){
+ let len = array.length;
+ let student = array[getRandInt(0,len-1)];
+	//alert(student);
+	document.querySelector('#chosen-one').textContent = student;	
+
+}
+
+
+//any random number Generator will do here.
+//function to generate a whole random interger
+//@2param: number - min, max (with defaults set)
+function getRandInt(min = 1, max = 100){
+	return Math.floor(Math.random() *(max-min +1))+min;
+}
+
+let classChosen = document.querySelector('#class-choice');
+
+classChosen.addEventListener("click", function(e){
+	//e.stopPropagation();
+  let classChoice = e.target.id;
+  //console.log(classChoice);
+  let arrayChoice;
+  if(classChoice == 'p1'){
+  	arrayChoice = p1;
+  }else if(classChoice == 'p3'){  	
+  	arrayChoice = p3;
+  }else if(classChoice == 'p4'){
+  	arrayChoice = p4;
+  }
+	getRandomStudent(arrayChoice);
+  
+});
+</script>
+
+</body>
+</html>
